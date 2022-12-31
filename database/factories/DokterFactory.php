@@ -33,7 +33,7 @@ class DokterFactory extends Factory
         ];
 
         return [
-            'nama' => fake()->name(),
+            'nama' => fake()->unique()->name(),
             'spesialis' => fake()->randomElement($spesialis)
         ];
     }
