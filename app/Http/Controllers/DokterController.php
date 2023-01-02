@@ -23,7 +23,7 @@ class DokterController extends Controller
                             <a href="' . route('dokter.edit', $data) . '" class="btn btn-sm btn-info btn-icon icon-left mr-2">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
-                            <a href=""
+                            <a href="#"
                                 class="btn btn-sm btn-danger btn-icon icon-left mr-2"
                                 data-toggle="modal"
                                 data-target="#modal-delete"

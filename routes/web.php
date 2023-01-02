@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\PasienController;
 use App\Http\Controllers\RuangRawatInapController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,16 @@ Route::middleware('auth')
         Route::get('dokter/{dokter}/edit', 'edit')->name('dokter.edit')->middleware('can:update_dokter');
         Route::patch('dokter/{dokter}', 'update')->name('dokter.update')->middleware('can:update_dokter');
         Route::delete('dokter/{dokter}', 'destroy')->name('dokter.destroy')->middleware('can:delete_dokter');
+    });
+
+    Route::controller(PasienController::class)
+    ->group(function () {
+        Route::get('pasien', 'index')->name('pasien.index');
+        Route::get('pasien/create', 'create')->name('pasien.create')->middleware('can:create_pasien');
+        Route::post('pasien', 'store')->name('pasien.store')->middleware('can:create_pasien');
+        Route::get('pasien/{pasien}/edit', 'edit')->name('pasien.edit')->middleware('can:edit_pasien');
+        Route::patch('pasien/{pasien}', 'update')->name('pasien.update')->middleware('can:edit_pasien');
+        Route::delete('pasien/{pasien}', 'destroy')->name('pasien.destroy')->middleware('can:delete_pasien');
     });
 
     Route::get('/', fn () => view('pages.home'))->name('dashboard');
