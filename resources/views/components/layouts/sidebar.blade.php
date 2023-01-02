@@ -20,6 +20,12 @@
                 <span>Data Pasien</span>
             </a>
         </li>
+        <li class="{{ request()->segment(1) === 'surveilans' ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('surveilans.index') }}">
+                <i class="fas fa-poll-h"></i>
+                <span>Surveilans</span>
+            </a>
+        </li>
 
         <li class="menu-header">Master Data</li>
         <li class="{{ request()->segment(1) === 'dokter' ? 'active' : '' }}">

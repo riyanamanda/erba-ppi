@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\InfeksiSaluranKemihController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\RuangRawatInapController;
+use App\Http\Controllers\SurveilansController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +48,19 @@ Route::middleware('auth')
         Route::get('pasien/{pasien}/edit', 'edit')->name('pasien.edit')->middleware('can:edit_pasien');
         Route::patch('pasien/{pasien}', 'update')->name('pasien.update')->middleware('can:edit_pasien');
         Route::delete('pasien/{pasien}', 'destroy')->name('pasien.destroy')->middleware('can:delete_pasien');
+    });
+
+    Route::controller(SurveilansController::class)
+    ->group(function () {
+        Route::get('surveilans', 'index')->name('surveilans.index');
+        Route::get('surveilans/create', 'create')->name('surveilans.create')->middleware('can:create_surveilans');
+
+        Route::get('surveilans/get-form', [SurveilansController::class, 'surveilans'])->name('get.form');
+    });
+
+    Route::controller(InfeksiSaluranKemihController::class)
+    ->group(function () {
+        Route::post('infeksi-saluran-kemih', 'store')->name('infeksi-saluran-kemih.store')->middleware('can:create_surveilans');
     });
 
     Route::get('/', fn () => view('pages.home'))->name('dashboard');
