@@ -29,12 +29,12 @@ class DokterFactory extends Factory
             'Radiologi',
             'Kedokteran Forensik',
             'Gizi Klinik',
-            'Fisik dan Rehabilitasi'
+            'Fisik dan Rehabilitasi',
         ];
 
         return [
             'nama' => fake()->unique()->name(),
-            'spesialis' => fake()->randomElement($spesialis)
+            'spesialis' => fake()->randomElement($spesialis),
         ];
     }
 }

@@ -29,7 +29,7 @@ class Pasien extends Model
         return $this->belongsTo(Dokter::class, 'dokter_penanggung_jawab_layanan', 'id');
     }
 
-    public function ruang()
+    public function ruang(): BelongsTo
     {
         return $this->belongsTo(RuangRawatInap::class, 'ruang_rawat_inap', 'id');
     }

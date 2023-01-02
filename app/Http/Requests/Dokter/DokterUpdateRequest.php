@@ -25,7 +25,7 @@ class DokterUpdateRequest extends FormRequest
     {
         return [
             'nama' => ['required', 'string', 'max:255'],
-            'spesialis' => ['required', 'string', 'max:255']
+            'spesialis' => ['required', 'string', 'max:255'],
         ];
     }
 }

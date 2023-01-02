@@ -35,7 +35,7 @@ class RolePermissionSeeder extends Seeder
 
         foreach ($permissions as $permission) {
             Permission::create([
-                'name' => $permission
+                'name' => $permission,
             ]);
         }
 
@@ -44,7 +44,7 @@ class RolePermissionSeeder extends Seeder
         ]);
 
         Role::create([
-            'name' => 'ipcn'
+            'name' => 'ipcn',
         ])->syncPermissions([
             'create_dokter',
             'update_dokter',

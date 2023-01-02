@@ -3,6 +3,7 @@
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\InfeksiSaluranKemihController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\PhlebitisController;
 use App\Http\Controllers\RuangRawatInapController;
 use App\Http\Controllers\SurveilansController;
 use Illuminate\Support\Facades\Route;
@@ -54,18 +55,27 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('surveilans', 'index')->name('surveilans.index');
         Route::get('surveilans/create', 'create')->name('surveilans.create')->middleware('can:create_surveilans');
+        Route::get('surveilans/{surveilans}/edit', 'edit')->name('surveilans.edit')->middleware('can:update_surveilans');
+        Route::delete('surveilans/{surveilans}', 'destroy')->name('surveilans.destroy')->middleware('can:delete_surveilans');
 
-        Route::get('surveilans/get-form', [SurveilansController::class, 'surveilans'])->name('get.form');
+        Route::get('surveilans/get-form', 'surveilans')->name('get.form');
     });
 
     Route::controller(InfeksiSaluranKemihController::class)
     ->group(function () {
         Route::post('infeksi-saluran-kemih', 'store')->name('infeksi-saluran-kemih.store')->middleware('can:create_surveilans');
+        Route::patch('infeksi-saluran-kemih/{infeksi_saluran_kemih}', 'update')->name('infeksi-saluran-kemih.update')->middleware('can:update_surveilans');
+    });
+
+    Route::controller(PhlebitisController::class)
+    ->group(function () {
+        Route::post('phlebitis', 'store')->name('phlebitis.store')->middleware('can:create_surveilans');
+        Route::patch('phlebitis/{phlebitis}', 'update')->name('phlebitis.update')->middleware('can:update_surveilans');
     });
 
     Route::get('/', fn () => view('pages.home'))->name('dashboard');
 });
 
 Auth::routes([
-    'register' => false
+    'register' => false,
 ]);

@@ -25,7 +25,7 @@ class RuangRawatInapStoreRequest extends FormRequest
     {
         return [
             'nama' => ['required', 'unique:ruang_rawat_inap', 'string', 'max:255'],
-            'kelas' => ['required', 'string', 'max:255']
+            'kelas' => ['required', 'string', 'max:255'],
         ];
     }
 }

@@ -21,15 +21,15 @@ class RuangRawatInapController extends Controller
                 ->addColumn('aksi', function ($data) {
                     $button = '
                         <div class="d-flex align-itemc-center justify-content-end">
-                            <a href="' . route('ruang-rawat-inap.edit', $data) . '" class="btn btn-sm btn-info btn-icon icon-left mr-2">
+                            <a href="'.route('ruang-rawat-inap.edit', $data).'" class="btn btn-sm btn-info btn-icon icon-left mr-2">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
                             <a href="#"
                                 class="btn btn-sm btn-danger btn-icon icon-left mr-2"
                                 data-toggle="modal"
                                 data-target="#modal-delete"
-                                data-title="' . $data->nama . '"
-                                data-url="' . route('ruang-rawat-inap.destroy', $data) . '">
+                                data-title="'.$data->nama.'"
+                                data-url="'.route('ruang-rawat-inap.destroy', $data).'">
                                 <i class="fas fa-trash"></i> Hapus
                             </a>
                         </div>
@@ -55,7 +55,7 @@ class RuangRawatInapController extends Controller
     {
         RuangRawatInap::create([
             'nama' => $request->nama,
-            'kelas' => $request->kelas
+            'kelas' => $request->kelas,
         ]);
 
         return to_route('ruang-rawat-inap.index')->withToastSuccess('Data berhasil disimpan');
@@ -77,7 +77,7 @@ class RuangRawatInapController extends Controller
     {
         $ruang_rawat_inap->update([
             'nama' => $request->nama,
-            'kelas' => $request->kelas
+            'kelas' => $request->kelas,
         ]);
 
         return to_route('ruang-rawat-inap.index')->withToastSuccess('Data berhasil diperbaharui');

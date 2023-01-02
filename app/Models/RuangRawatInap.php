@@ -13,6 +13,6 @@ class RuangRawatInap extends Model
 
     protected $fillable = [
         'nama',
-        'kelas'
+        'kelas',
     ];
 }

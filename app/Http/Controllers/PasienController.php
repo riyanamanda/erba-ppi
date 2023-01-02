@@ -37,15 +37,15 @@ class PasienController extends Controller
                 ->addColumn('aksi', function ($data) {
                     $button = '
                         <div class="d-flex align-itemc-center justify-content-end">
-                            <a href="' . route('pasien.edit', $data) . '" class="btn btn-sm btn-info btn-icon icon-left mr-2">
+                            <a href="'.route('pasien.edit', $data).'" class="btn btn-sm btn-info btn-icon icon-left mr-2">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
                             <a href="#"
                                 class="btn btn-sm btn-danger btn-icon icon-left mr-2"
                                 data-toggle="modal"
                                 data-target="#modal-delete"
-                                data-title="' . $data->nama . '"
-                                data-url="' . route('pasien.destroy', $data) . '">
+                                data-title="'.$data->nama.'"
+                                data-url="'.route('pasien.destroy', $data).'">
                                 <i class="fas fa-trash"></i> Hapus
                             </a>
                         </div>
@@ -72,7 +72,7 @@ class PasienController extends Controller
     public function store(PasienStoreRequest $request)
     {
         Pasien::create([
-            'no_rekam_medis' => now()->day . mt_rand(00001, 99999),
+            'no_rekam_medis' => now()->day.mt_rand(00001, 99999),
             'nik' => $request->nik,
             'nama' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,

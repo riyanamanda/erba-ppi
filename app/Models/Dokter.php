@@ -13,6 +13,6 @@ class Dokter extends Model
 
     protected $fillable = [
         'nama',
-        'spesialis'
+        'spesialis',
     ];
 }

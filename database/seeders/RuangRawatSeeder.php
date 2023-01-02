@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Enums\KelasRuangan;
 use App\Models\RuangRawatInap;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class RuangRawatSeeder extends Seeder
@@ -29,7 +28,7 @@ class RuangRawatSeeder extends Seeder
         foreach ($nama_ruangan as $nama) {
             RuangRawatInap::create([
                 'nama' => $nama,
-                'kelas' => fake()->randomElement(KelasRuangan::cases())
+                'kelas' => fake()->randomElement(KelasRuangan::cases()),
             ]);
         }
     }

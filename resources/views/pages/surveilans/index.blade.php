@@ -27,19 +27,10 @@
                                 <th scope="col">No Rekam Medis</th>
                                 <th scope="col">Nama Pasien</th>
                                 <th scope="col">Jenis Surveilans</th>
+                                <th scope="col">Dibuat pada</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
-                        {{-- <tbody>
-                            @foreach ($surveilans as $item)
-                            <tr>
-                                <td>{{ $item->datapasien->no_rekam_medis }}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            @endforeach
-                        </tbody> --}}
                     </table>
                 </div>
             </div>
@@ -74,6 +65,9 @@
                 },
                 {
                     data: 'jenis_surveilans', name: 'jenis_surveilans'
+                },
+                {
+                    data: 'created_at', name: 'created_at'
                 },
                 {
                     data: 'aksi', name: 'aksi', sortable: false, searchable: false

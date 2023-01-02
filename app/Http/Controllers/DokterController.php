@@ -20,15 +20,15 @@ class DokterController extends Controller
                 ->addColumn('aksi', function ($data) {
                     $button = '
                         <div class="d-flex align-itemc-center justify-content-end">
-                            <a href="' . route('dokter.edit', $data) . '" class="btn btn-sm btn-info btn-icon icon-left mr-2">
+                            <a href="'.route('dokter.edit', $data).'" class="btn btn-sm btn-info btn-icon icon-left mr-2">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
                             <a href="#"
                                 class="btn btn-sm btn-danger btn-icon icon-left mr-2"
                                 data-toggle="modal"
                                 data-target="#modal-delete"
-                                data-title="' . $data->nama . '"
-                                data-url="' . route('dokter.destroy', $data) . '">
+                                data-title="'.$data->nama.'"
+                                data-url="'.route('dokter.destroy', $data).'">
                                 <i class="fas fa-trash"></i> Hapus
                             </a>
                         </div>
@@ -52,7 +52,7 @@ class DokterController extends Controller
     {
         Dokter::create([
             'nama' => $request->nama,
-            'spesialis' => $request->spesialis
+            'spesialis' => $request->spesialis,
         ]);
 
         return to_route('dokter.index')->withToastSuccess('Data berhasil disimpan');
@@ -72,7 +72,7 @@ class DokterController extends Controller
     {
         $dokter->update([
             'nama' => $request->nama,
-            'spesialis' => $request->spesialis
+            'spesialis' => $request->spesialis,
         ]);
 
         return to_route('dokter.index')->withToastSuccess('Data berhasil diperbaharui');

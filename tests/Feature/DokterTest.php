@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Dokter;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
@@ -14,6 +13,7 @@ class DokterTest extends TestCase
     use RefreshDatabase;
 
     private User $user;
+
     private User $superadmin;
 
     public function setUp(): void
@@ -42,7 +42,7 @@ class DokterTest extends TestCase
     {
         $dokter = [
             'nama' => 'Dokter',
-            'spesialis' => 'spesialis'
+            'spesialis' => 'spesialis',
         ];
 
         $response = $this
@@ -62,7 +62,7 @@ class DokterTest extends TestCase
         $data = Dokter::first();
         $dokter = [
             'nama' => 'updated',
-            'spesialis' => 'updated'
+            'spesialis' => 'updated',
         ];
 
         $response = $this

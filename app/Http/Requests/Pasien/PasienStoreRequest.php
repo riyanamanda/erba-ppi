@@ -24,7 +24,7 @@ class PasienStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'nik' => ['required', 'numeric', 'digits:16' , 'unique:pasien'],
+            'nik' => ['required', 'numeric', 'digits:16', 'unique:pasien'],
             'nama' => ['required', 'string', 'max:255'],
             'jenis_kelamin' => ['required', 'string', 'max:255'],
             'tanggal_lahir' => ['required', 'date'],

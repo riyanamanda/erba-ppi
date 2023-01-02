@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Surveilans extends Model
@@ -15,10 +16,10 @@ class Surveilans extends Model
     protected $fillable = [
         'pasien',
         'surveilansable_id',
-        'surveilansable_type'
+        'surveilansable_type',
     ];
 
-    public function datapasien()
+    public function datapasien(): HasOne
     {
         return $this->hasOne(Pasien::class, 'id', 'pasien');
     }

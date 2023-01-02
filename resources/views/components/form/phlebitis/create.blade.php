@@ -65,8 +65,35 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label for="tanggal_pasang">Tanggal Pasang <string class="text-danger">*</string></label>
+                    <input type="date" class="form-control @error('tanggal_pasang') is-invalid @enderror"
+                        id="tanggal_pasang" name="tanggal_pasang">
+                    @error('tanggal_pasang')
+                    <strong class="invalid-feedback">
+                        {{ $message }}
+                    </strong>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label for="tanggal_lepas">Tanggal Lepas <string class="text-danger">*</string></label>
+                    <input type="date" class="form-control @error('tanggal_lepas') is-invalid @enderror"
+                        id="tanggal_lepas" name="tanggal_lepas">
+                    @error('tanggal_lepas')
+                    <strong class="invalid-feedback">
+                        {{ $message }}
+                    </strong>
+                    @enderror
+                </div>
+            </div>
+        </div>
+
         <div class="form-group">
-            <label for="keterangan">Keterangan</label>
+            <label for="keterangan">Keterangan <strong class="text-danger">*</strong></label>
             <textarea class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan"
                 style="height: 80px;"></textarea>
             @error('keterangan')
@@ -231,33 +258,6 @@
                     </div>
                     @error('melepas_pemasangan_apabila_lebih_dari_72_jam')
                     <strong class="text-danger" style="font-size: 11px;">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label for="tanggal_pasang">Tanggal Pasang <string class="text-danger">*</string></label>
-                    <input type="date" class="form-control @error('tanggal_pasang') is-invalid @enderror"
-                        id="tanggal_pasang" name="tanggal_pasang">
-                    @error('tanggal_pasang')
-                    <strong class="invalid-feedback">
-                        {{ $message }}
-                    </strong>
-                    @enderror
-                </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label for="tanggal_lepas">Tanggal Lepas <string class="text-danger">*</string></label>
-                    <input type="date" class="form-control @error('tanggal_lepas') is-invalid @enderror"
-                        id="tanggal_lepas" name="tanggal_lepas">
-                    @error('tanggal_lepas')
-                    <strong class="invalid-feedback">
                         {{ $message }}
                     </strong>
                     @enderror

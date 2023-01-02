@@ -26,7 +26,7 @@ class RuangRawatInapUpdateRequest extends FormRequest
     {
         return [
             'nama' => ['required', 'string', 'max:255', Rule::unique('ruang_rawat_inap', 'nama')->ignore($this->ruang_rawat_inap)],
-            'kelas' => ['required', 'string', 'max:255']
+            'kelas' => ['required', 'string', 'max:255'],
         ];
     }
 }
