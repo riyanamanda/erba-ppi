@@ -27,7 +27,7 @@
                                 <th scope="col">No Rekam Medis</th>
                                 <th scope="col">Nama Pasien</th>
                                 <th scope="col">Jenis Surveilans</th>
-                                <th scope="col">Dibuat pada</th>
+                                <th scope="col">Direkam pada</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>

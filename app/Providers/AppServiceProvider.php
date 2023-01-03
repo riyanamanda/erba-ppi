@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\InfeksiSaluranKemih;
+use App\Models\Phlebitis;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,5 +32,10 @@ class AppServiceProvider extends ServiceProvider
                 return true;
             }
         });
+
+        Relation::morphMap([
+            'infeksi_saluran_kemih' => InfeksiSaluranKemih::class,
+            'phlebitis' => Phlebitis::class
+        ]);
     }
 }

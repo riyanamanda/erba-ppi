@@ -4,6 +4,7 @@ use App\Http\Controllers\DokterController;
 use App\Http\Controllers\InfeksiSaluranKemihController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\PhlebitisController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RuangRawatInapController;
 use App\Http\Controllers\SurveilansController;
 use Illuminate\Support\Facades\Route;
@@ -71,6 +72,12 @@ Route::middleware('auth')
     ->group(function () {
         Route::post('phlebitis', 'store')->name('phlebitis.store')->middleware('can:create_surveilans');
         Route::patch('phlebitis/{phlebitis}', 'update')->name('phlebitis.update')->middleware('can:update_surveilans');
+    });
+
+    Route::controller(ReportController::class)
+    ->group(function () {
+        Route::get('report/surveilans', 'surveilans')->name('report.surveilans');
+        Route::post('report/export-to-pdf', 'export_pdf')->name('report.export');
     });
 
     Route::get('/', fn () => view('pages.home'))->name('dashboard');

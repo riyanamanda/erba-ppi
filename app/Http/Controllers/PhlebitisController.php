@@ -30,7 +30,7 @@ class PhlebitisController extends Controller
             Surveilans::create([
                 'pasien' => $request->pasien,
                 'surveilansable_id' => $phlebitis->id,
-                'surveilansable_type' => Phlebitis::class,
+                'surveilansable_type' => 'phlebitis',
             ]);
         });
 

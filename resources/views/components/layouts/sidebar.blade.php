@@ -40,6 +40,14 @@
                 <span>Ruang Rawat Inap</span>
             </a>
         </li>
+
+        <li class="menu-header">Laporan</li>
+        <li class="{{ request()->segment(1) === 'laporan-surveilans' ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('report.surveilans') }}">
+                <i class="fas fa-file-invoice"></i>
+                <span>Laporan Surveilans</span>
+            </a>
+        </li>
     </ul>
 
     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

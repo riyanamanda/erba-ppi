@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -22,8 +21,8 @@ return new class() extends Migration
             $table->date('tanggal_lahir');
             $table->text('alamat');
             $table->string('jenis_asuransi');
-            $table->foreignId('dokter_penanggung_jawab_layanan')->constrained('dokter')->onDelete(null);
-            $table->foreignId('ruang_rawat_inap')->constrained('ruang_rawat_inap')->onDelete(null);
+            $table->foreignId('dokter_penanggung_jawab_layanan')->constrained('dokter')->cascadeOnDelete();
+            $table->foreignId('ruang_rawat_inap')->constrained('ruang_rawat_inap')->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -32,7 +32,7 @@ class InfeksiSaluranKemihController extends Controller
             Surveilans::create([
                 'pasien' => $request->pasien,
                 'surveilansable_id' => $isk->id,
-                'surveilansable_type' => InfeksiSaluranKemih::class,
+                'surveilansable_type' => 'infeksi_saluran_kemih',
             ]);
         });
 
