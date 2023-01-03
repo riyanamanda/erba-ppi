@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\InfeksiSaluranKemihController;
 use App\Http\Controllers\PasienController;
@@ -80,7 +81,7 @@ Route::middleware('auth')
         Route::post('report/export-to-pdf', 'export_pdf')->name('report.export');
     });
 
-    Route::get('/', fn () => view('pages.home'))->name('dashboard');
+    Route::get('/', DashboardController::class)->name('dashboard');
 });
 
 Auth::routes([
