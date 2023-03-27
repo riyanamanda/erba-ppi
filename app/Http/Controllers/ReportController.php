@@ -28,7 +28,7 @@ class ReportController extends Controller
             $filter = '';
         }
 
-        if (!is_null($jenis_laporan) && !is_null($dari) && !is_null($sampai)) {
+        if (! is_null($jenis_laporan) && ! is_null($dari) && ! is_null($sampai)) {
             $dariTanggal = Carbon::parse($dari)->startOfDay();
             $sampaiTanggal = Carbon::parse($sampai)->endOfDay();
 
