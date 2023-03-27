@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
 
         Relation::morphMap([
             'infeksi_saluran_kemih' => InfeksiSaluranKemih::class,
-            'phlebitis' => Phlebitis::class
+            'phlebitis' => Phlebitis::class,
         ]);
     }
 }

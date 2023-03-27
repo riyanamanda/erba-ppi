@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Surveilans;
-use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
@@ -52,6 +52,7 @@ class ReportController extends Controller
 
         $pdf = Pdf::loadView('components.export-pdf', compact('surveilans', 'jenis_surveilans', 'dari', 'sampai'));
         $pdf->setPaper('A4', 'landscape');
+
         return $pdf->stream('surveilans.pdf');
     }
 }
