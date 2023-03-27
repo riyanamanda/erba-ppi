@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Surveilans;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -27,15 +28,18 @@ class ReportController extends Controller
             $filter = '';
         }
 
-        if (! is_null($jenis_laporan) && ! is_null($dari) && ! is_null($sampai)) {
+        if (!is_null($jenis_laporan) && !is_null($dari) && !is_null($sampai)) {
+            $dariTanggal = Carbon::parse($dari)->startOfDay();
+            $sampaiTanggal = Carbon::parse($sampai)->endOfDay();
+
             if ($filter) {
                 $surveilans = Surveilans::query()
                     ->where('surveilansable_type', $filter)
-                    ->whereBetween('created_at', [$dari, $sampai])
+                    ->whereBetween('created_at', [$dariTanggal, $sampaiTanggal])
                     ->get();
             } else {
                 $surveilans = Surveilans::query()
-                    ->whereBetween('created_at', [$dari, $sampai])
+                    ->whereBetween('created_at', [$dariTanggal, $sampaiTanggal])
                     ->get();
             }
         }

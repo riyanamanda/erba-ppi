@@ -42,7 +42,7 @@
         </li>
 
         <li class="menu-header">Laporan</li>
-        <li class="{{ request()->segment(1) === 'laporan-surveilans' ? 'active' : '' }}">
+        <li class="{{ request()->segment(1) === 'report' ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('report.surveilans') }}">
                 <i class="fas fa-file-invoice"></i>
                 <span>Laporan Surveilans</span>
@@ -52,7 +52,7 @@
 
     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
         <a href="https://rs-erba.go.id/" target="_blank" rel="noreferrer"
-            class="btn btn-primary btn-lg btn-block btn-icon-split">
+           class="btn btn-primary btn-lg btn-block btn-icon-split">
             <i class="fas fa-globe"></i> Official Website
         </a>
     </div>
